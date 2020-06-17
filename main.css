@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
 body {
     background-color: #fff;
     color: rgba(0,0,0,0.87);
@@ -319,3 +323,26 @@ input.search-tab:focus {
     color: rgba(0, 0, 0, 0.08);
   }
           
+
+  @media (max-width : 750px) {
+    .searchbar {
+        flex-direction: column;
+    }
+    
+    .searchbar-right {
+        justify-content: space-evenly;
+        margin-top: 15px;
+    }
+    
+    input.search-tab {
+        max-width: calc(100% - 22px);
+    }
+    
+    .enneagram-tab {
+        margin-left: 0;
+    }
+    
+    .enneagram .dropdown-content {
+        margin-left: 0;
+    }
+}
