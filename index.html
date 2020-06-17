@@ -15,10 +15,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
         integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css" />
-
-    <!-- scripts -->
-    <script type="text/javascript" src="data.js"></script>
+    <link rel="stylesheet" href="../main.css" />
 
     <!-- info -->
     <title>floriographs</title>
@@ -29,12 +26,12 @@
 
         <div class="header">
             <div class="header-left">
-            <div class="logo"><img src="peony.png" /></div>
+            <div class="logo"><img src="../peony.png" /></div>
             <div class="title">floriographs</div>
             </div>
             <div class="links">
                 <ul>
-                    <li><a href="/pieces" title="pieces">pieces</a></li>
+                    <li><a href="http://floriographs.github.io" title="home">home</a></li>
                     <li><a href="http://etsy.com/shop/floriographs" target="_blank" title="Etsy">etsy</a></li>
                     <li><a href="mailto:floriographs@gmail.com" title="email">contact</a></li>
                 </ul>
@@ -43,159 +40,48 @@
 
         <div class="content">
             <div class="inner-content">
-                <div class="searchbar">
-                    <input type="text" placeholder="by name or meaning..." class="search-tab" onkeyup="search()"
-                        id="search" />
-
-                    <div class="searchbar-right">
-                        <div class="dropdown enneagram">
-                            <div class="enneagram-tab">
-                                by enneagram <i class="fas fa-caret-down"></i>
-                            </div>
-                            <div class="dropdown-content">
-                                <button onclick="sort('e-' + 1)">1</button>
-                                <button onclick="sort('e-' + 2)">2</button>
-                                <button onclick="sort('e-' + 3)">3</button>
-                                <button onclick="sort('e-' + 4)">4</button>
-                                <button onclick="sort('e-' + 5)">5</button>
-                                <button onclick="sort('e-' + 6)">6</button>
-                                <button onclick="sort('e-' + 7)">7</button>
-                                <button onclick="sort('e-' + 8)">8</button>
-                                <button onclick="sort('e-' + 9)">9</button>
-                                <button onclick="hideSearch()" class="clear">clear</button>
-                            </div>
-                        </div>
-
-                        <div class="dropdown category">
-                            <div class="category-tab">
-                                by category <i class="fas fa-caret-down"></i>
-                            </div>
-                            <div class="dropdown-content">
-                                <button onclick="sort('love')">love</button>
-                                <button onclick="sort('friendship')">friendship</button>
-                                <button onclick="sort('condolences')">condolences</button>
-                                <button onclick="sort('illness')">illness</button>
-                                <button onclick="sort('religion')">religion</button>
-                                <button onclick="sort('creativity')">creativity</button>
-                                <button onclick="sort('thanks')">thanks</button>
-                                <button onclick="sort('congratulations')">congratulations</button>
-                                <button onclick="hideSearch()">clear</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cardholder" id="cards">
-
-                </div>
-
-                <div class="filter" id="filter">
-                    <button onclick="hideSearch()"><i class="fas fa-times"></i></button>
-                    <div class="text"></div>
-                </div>
+                <div class="preview"><img src="imgs/acacia.jpg" title="acacia" /></div>
+                <div class="preview"><img src="imgs/acanthus.jpg" title="acanthus" /></div>
+                <div class="preview"><img src="imgs/agrimony.jpg" title="agrimony" /></div>
+                <div class="preview"><img src="imgs/allium.jpg" title="allium" /></div>
+                <div class="preview"><img src="imgs/aloe.jpg" title="aloe" /></div>
+                <div class="preview"><img src="imgs/alstromeria.jpg" title="alstromeria" /></div>
+                <div class="preview"><img src="imgs/amaryllis.jpg" title="amaryllis" /></div>
             </div>
         </div>
 
     </div>
 </body>
 
-<script>
-    var cards = "";
-    for (var i = 0; i < data.length; i++) {
-        var flower = data[i];
-        cards += "<div class='card ";
-        for (var k = 0; k < flower.tags.length; k++) {
-            cards += flower.tags[k] + " ";
-        }
-        cards += "'><div class='name'>"
-            + flower.name
-            + "</div><div class='tags'>";
-        for (var j = 0; j < flower.meanings.length; j++) {
-            cards += "<button onclick='search(\"" + flower.meanings[j] + "\")'>"
-                  +  flower.meanings[j]
-                  + "</button>";
-        }
-        cards += "</div></div>";
-    }
+<style>
+    .preview {
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.08);
+}
 
-    document.getElementById("cards").innerHTML = cards;
-</script>
+.preview img {
+    width: 100%;
+}
 
+.inner-content {
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0);
+    transition: color .3s ease;
+}
 
-<script>
-    function sort(tag) {
-        var cards = document.getElementById("cards");
-        for (var i = 0; i < cards.children.length; i++) {
-            var child = cards.children[i];
-            if (child.classList.contains(tag)) {
-                child.style.display = "block";
-            }
-            else {
-                child.style.display = "none";
-            }
-        }
+  .inner-content:hover {
+    color: rgba(0, 0, 0, 0.08);
+  }
+          
 
-        var val = "";
-        if (tag.substring(0, 2) == "e-") {
-            val = "<span style='font-weight:300'>enneagram type " + tag.substring(2) + "</span>";
-        }
-        else {
-            val = "the category: <span style='font-weight:300'>" + tag + "</span>";
-        }
-        
-        showSearch("showing plants for " + val);
-    }
-
-    function search(keyword) {
-        var filter;
-        if (keyword == null || keyword == undefined)
-        {
-            filter = document.getElementById('search').value.toUpperCase();
-        }
-        else filter = keyword.toUpperCase();
-
-        showHideCards(filter);
-
-        console.log(filter);
-        if (filter != null && filter.length > 0) {
-            showSearch("showing plants with names or meanings that contain <span style='font-weight:300'>" + filter.toLowerCase() + "</span>");
-        } else {
-            hideSearch();
-        }
-    }
-
-    function showHideCards(filter) {
-        var cards, meanings, i, j, txtValue;
-        
-        cards = document.getElementsByClassName('card');
-
-        for (i = 0; i < cards.length; i++) {
-            meanings = cards[i].getElementsByClassName("tags")[0].getElementsByTagName("button");
-            txtValue = cards[i].getElementsByClassName("name")[0].innerHTML + " ";
-            for (j = 0; j < meanings.length; j++) {
-                txtValue += meanings[j].innerHTML + " ";
-            }
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                cards[i].style.display = "block";
-            } else {
-                cards[i].style.display = "none";
-            }
-        }
-    }
-
-    function showSearch(searchText)
-    {
-        var filterDiv = document.getElementById("filter");
-        filterDiv.getElementsByClassName("text")[0].innerHTML = searchText;
-        filterDiv.style.display = "block";
-    }
-
-    function hideSearch()
-    {
-        showHideCards("");
-        var filterDiv = document.getElementById("filter");
-        filterDiv.getElementsByClassName("text")[0].innerHTML = "";
-        filterDiv.style.display = "none";
-    }
-</script>
-</html>
+</style>
