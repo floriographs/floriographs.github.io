@@ -15,7 +15,7 @@ body {
     flex-direction: column;
     height: 100%;
     overflow:hidden;
-    min-width: 600px;
+    min-width: 300px;
 }
 
 .header {
@@ -33,14 +33,16 @@ body {
             width: 100%;
         }
 
+        .header .header-left {
+            display: flex;
+        }
+
     .header .title {
         font-size: 36px;
-        width: 50%;
         font-weight: 300;
     }
 
     .header .links {
-        width: 50%;
         text-align: right;
     }
 
@@ -306,9 +308,9 @@ input.search-tab:focus {
 
         *::-webkit-scrollbar,
 *::-webkit-scrollbar-thumb {
-  width: 26px;
+  width: 16px;
   background-clip: padding-box;
-  border: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 *::-webkit-scrollbar-thumb {        
     box-shadow: inset 0 0 0 10px;
@@ -345,4 +347,82 @@ input.search-tab:focus {
     .enneagram .dropdown-content {
         margin-left: 0;
     }
-}
+
+    .header {
+        padding: 25px;
+    }
+    
+    .content {
+        padding: 0 25px 25px;
+        height: calc(100% - 125px);
+    }
+
+    .filter {
+        width: calc(100% - 115px);
+    margin: 101px 32px;
+    }
+  }
+    @media only screen and (max-width: 475px) {
+        .searchbar-right {
+            flex-direction: column;
+            align-items: center;
+              margin-top: 0;
+        }
+        
+        .category-tab, .category .dropdown-content {
+            margin-left: 0;
+        }
+        
+        body {
+            min-width: 300px;
+        }
+        
+        .dropdown {
+            margin-top: 10px;
+        }
+        
+        .header {
+            flex-direction: column;
+        }
+
+        .dropdown i {
+            display: none;
+        }
+        
+        .enneagram-tab, .category-tab {
+            justify-content: center;
+            width: calc(100% - 22px);
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        
+        .dropdown {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dropdown-content {
+            display: flex !important;
+            position: relative;
+            width: calc(100% - 13px) !important;
+            box-shadow: none;
+            flex-wrap: wrap;
+    justify-content: center;
+        }
+        
+        .enneagram .dropdown-content button {
+            margin: 3px !important;
+        }
+        
+        .dropdown-content button:last-of-type {
+            display: none;
+        }
+        .category button {
+            width: auto !important;
+        }
+        .filter {
+            margin-top: 275px;
+        }
+    }
