@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+        integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="../main.css" />
+
+    <!-- scripts -->
+    <script type="text/javascript" src="data.js"></script>
+
+    <!-- info -->
+    <title>floriographs</title>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="header">
+            <div class="header-left">
+            <div class="logo"><img src="../peony.png" /></div>
+            <div class="title">floriographs</div>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="http://floriographs.github.io" title="home">home</a></li>
+                    <li><a href="http://etsy.com/shop/floriographs" target="_blank" title="Etsy">etsy</a></li>
+                    <li><a href="mailto:floriographs@gmail.com" title="email">contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="inner-content">
+                <div class="preview"><img src="imgs/acacia.jpg" title="acacia" /></div>
+                <div class="preview"><img src="imgs/acanthus.jpg" title="acanthus" /></div>
+                <div class="preview"><img src="imgs/agrimony.jpg" title="agrimony" /></div>
+                <div class="preview"><img src="imgs/allium.jpg" title="allium" /></div>
+                <div class="preview"><img src="imgs/aloe.jpg" title="aloe" /></div>
+                <div class="preview"><img src="imgs/alstromeria.jpg" title="alstromeria" /></div>
+                <div class="preview"><img src="imgs/amaryllis.jpg" title="amaryllis" /></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<style>
+    .preview {
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.08);
+}
+
+.preview img {
+    width: 100%;
+}
+
+.inner-content {
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0);
+    transition: color .3s ease;
+}
+
+  .inner-content:hover {
+    color: rgba(0, 0, 0, 0.08);
+  }
+          
+
+</style>
